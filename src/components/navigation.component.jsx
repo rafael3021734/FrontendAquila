@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TabBar } from 'antd-mobile';
-import { CalendarOutline, EnvironmentOutline, SearchOutline, UserOutline } from 'antd-mobile-icons';
+import { CalendarOutline, EnvironmentOutline, HeartOutline, SearchOutline, UserOutline } from 'antd-mobile-icons';
 
 import {
     useNavigate,
@@ -35,6 +35,11 @@ const Navigation = () => {
             icon: <CalendarOutline />,
         },
         {
+            key: '/favourites',
+            title: 'Favoritos',
+            icon: <HeartOutline />,
+        },
+        {
             key: '/profile',
             title: 'Perfil',
             icon: <UserOutline />,
@@ -44,7 +49,7 @@ const Navigation = () => {
     return (
         <>
             <Outlet/>
-            <div style={{bottom: 0, position: 'fixed', width: '100%', borderTop: 'solid 1px var(--adm-color-border)'}}>
+            <div style={{bottom: 0, position: 'fixed', zIndex: 1000, width: '100%', borderTop: 'solid 1px var(--adm-color-border)'}}>
                 <TabBar activeKey={pathname} onChange={value => setRouteActive(value)} >
                     {tabs.map(item => (
                         <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
